@@ -1,7 +1,7 @@
 gradio
-langid
+numpy
+gtts
+langdetect
 deep-translator
-textblob
 SpeechRecognition
 pydub
-pyttsx3

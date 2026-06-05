@@ -1,21 +1,26 @@
-# import joblib, os
+from langdetect import detect_langs, DetectorFactory
+import re
 
-# MODEL_PATH = os.path.join("models", "lang_detect_model.pkl")
-# VEC_PATH = os.path.join("models", "lang_vectorizer.pkl")
-
-# lang_model = joblib.load(MODEL_PATH)
-# lang_vectorizer = joblib.load(VEC_PATH)
-
-# def detect_language(text: str) -> str:
-#     vec = lang_vectorizer.transform([text])
-#     return lang_model.predict(vec)[0]
-
-import langid
+DetectorFactory.seed = 0
 
 def detect_language(text):
-    if len(text.strip()) < 3:
-        return "Text too short"
+    text = text.strip()
 
-    lang, confidence = langid.classify(text)
+    # 1️⃣ If too short → default English
+    if len(text.split()) < 4:
+        return "en"
 
-    return f"{lang}"
+    # 2️⃣ Clean text (important for BCA-like words)
+    text_clean = re.sub(r'[^a-zA-Z\s]', '', text)
+
+    try:
+        result = detect_langs(text_clean)[0]
+
+        # 3️⃣ Confidence check
+        if result.prob < 0.70:
+            return "en"
+
+        return result.lang
+
+    except:
+        return "en"
