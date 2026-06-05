@@ -1,0 +1,7 @@
+gradio
+langid
+deep-translator
+textblob
+SpeechRecognition
+pydub
+pyttsx3
