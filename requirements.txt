@@ -1,6 +1,15 @@
+# gradio
+# numpy
+# gtts
+# langdetect
+# deep-translator
+# SpeechRecognition
+# pydub
+# textblob
+
 gradio
 numpy
-gtts
+edge-tts
 langdetect
 deep-translator
 SpeechRecognition

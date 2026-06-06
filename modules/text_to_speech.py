@@ -10,14 +10,35 @@
 
 
 
-from gtts import gTTS
+# from gtts import gTTS
+# import os
+
+# def text_to_speech(text):
+#     os.makedirs("temp", exist_ok=True)
+
+#     file_path = "temp/output.mp3"
+#     tts = gTTS(text=text, lang="en")
+#     tts.save(file_path)
+
+#     return file_path
+
+import edge_tts
+import asyncio
 import os
 
-def text_to_speech(text):
+async def generate_audio(text):
     os.makedirs("temp", exist_ok=True)
 
-    file_path = "temp/output.mp3"
-    tts = gTTS(text=text, lang="en")
-    tts.save(file_path)
+    output_file = "temp/output.mp3"
 
-    return file_path
+    communicate = edge_tts.Communicate(
+        text=text,
+        voice="en-US-AriaNeural"
+    )
+
+    await communicate.save(output_file)
+
+    return output_file
+
+def text_to_speech(text):
+    return asyncio.run(generate_audio(text))

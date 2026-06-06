@@ -77,7 +77,12 @@ with gr.Blocks(theme=gr.themes.Soft(), css="""
         gr.Markdown("### Convert text into natural voice")
 
         tts_input = gr.Textbox(label="Enter Text", lines=4)
-        tts_output = gr.Audio(label="Generated Speech")
+        # tts_output = gr.Audio(label="Generated Speech")
+
+        tts_output = gr.Audio(
+    type="filepath",
+    label="Generated Speech"
+)
 
         btn3 = gr.Button("🔊 Generate Voice")
 
