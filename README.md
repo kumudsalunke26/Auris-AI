@@ -1,3 +1,17 @@
+---
+title: Auris AI
+emoji: 📚
+colorFrom: pink
+colorTo: pink
+sdk: gradio
+sdk_version: 6.16.0
+python_version: '3.13'
+app_file: app.py
+pinned: false
+---
+
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+
 # AURIS AI – Advanced Unified Recognition & Intelligence System
 
 AURIS AI is an AI-powered multilingual language processing platform that enables language detection, machine translation, sentiment analysis, speech-to-text (STT), and text-to-speech (TTS) through a unified interface.
