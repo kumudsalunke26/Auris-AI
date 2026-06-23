@@ -28,6 +28,7 @@ AURIS AI explores multilingual Natural Language Understanding (NLU) by integrati
 ## Deployment
 
 The application is deployed on Hugging Face Spaces for public access and scalable inference.
+https://huggingface.co/spaces/kumudsalunke/Auris-AI
 
 ## Project Architecture
 
